@@ -22,7 +22,7 @@ resources:
   properties:
     ## Cluster Configuration
     cluster_name            : lustre
-    zone                    : us-central1-f
+    zone                    : asia-southeast1-c
     cidr                    : 10.20.0.0/16
     external_ips            : True
     ### Use these fields to deploy Lustre in an existing VPC, Subnet, and/or Shared VPC
@@ -52,9 +52,9 @@ resources:
     mdt_disk_size_gb        : 1000
 
     ## Lustre OSS Configuration
-    oss_node_count          : 4
+    oss_node_count          : 10
     oss_ip_range_start      : 10.20.0.50
-    oss_machine_type        : n1-standard-16
+    oss_machine_type        : n2-standard-16
     ### OSS Boot disk
     oss_boot_disk_type      : pd-standard
     oss_boot_disk_size_gb   : 20
@@ -62,8 +62,8 @@ resources:
     ### ost_per_oss sets the number of PD disks if used, up to 256TB per VM.
     ### if ost_disk_type = local-ssd then ost_per_oss is ignored.
     ost_per_oss             : 2
-    ost_disk_type           : pd-balanced
-    ost_disk_size_gb        : 1000
+    ost_disk_type           : pd-ssd
+    ost_disk_size_gb        : 5000
 
     ## Lustre HSM Lemur Configuration
     #hsm_node_count         : 1
